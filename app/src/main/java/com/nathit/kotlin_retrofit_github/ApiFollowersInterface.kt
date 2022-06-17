@@ -15,7 +15,7 @@ interface ApiFollowersInterface {
 
     companion object {
         var retrofit = Retrofit.Builder()
-            .baseUrl("https://api.github.com/1")
+            .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
