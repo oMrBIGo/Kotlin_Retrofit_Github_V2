@@ -76,7 +76,7 @@ class ReposActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<ReposModel>>, t: Throwable) {
                 loadingDialog.dismiss()
-                Log.d("RequestCall", "Request failed")
+                Log.d("RequestCall", "Request failed"+t.message)
             }
         })
     }

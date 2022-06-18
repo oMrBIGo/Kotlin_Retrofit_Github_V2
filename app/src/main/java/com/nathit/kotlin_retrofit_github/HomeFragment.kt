@@ -29,7 +29,6 @@ class HomeFragment : Fragment() {
 
     var mSwipeRefreshLayout: SwipeRefreshLayout? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,8 +49,6 @@ class HomeFragment : Fragment() {
 
         return view
     }
-
-
 
     private fun getData() {
         loadingDialog = ProgressDialog.show(context,"กำลังโหลดข้อมูล","รอสักครู่...",true,false)
