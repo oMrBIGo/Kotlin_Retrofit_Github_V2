@@ -52,7 +52,7 @@ class EventFragment : Fragment() {
         loadingDialog = ProgressDialog.show(context, "กำลังโหลด", "รอสักครู่...", true, false)
         val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
+            .baseUrl("https://api.github.com")
             .build()
             .create(ApiEventInterface::class.java)
 
