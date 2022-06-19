@@ -41,6 +41,13 @@ class EventsAdapter(
             formatter.format(parser.parse(event_list[position].created_at))
         holder.binding.createTv.text = output_create_at
 
+        if (event_list[position].type == "PullRequestReviewCommentEvent") {
+            holder.binding.typeTv.text = "PullRequestEvent"
+        } else {
+            holder.binding.typeTv.text = event_list[position].type
+        }
+        holder.binding.typeTv
+
         Glide.with(context)
             .load(event_list[position].actor.avatar_url)
             .centerCrop()

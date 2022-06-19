@@ -50,15 +50,11 @@ class EventFragment : Fragment() {
 
     private fun getEventData() {
         loadingDialog = ProgressDialog.show(context, "กำลังโหลด", "รอสักครู่...", true, false)
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.github.com")
-            .build()
-            .create(ApiEventInterface::class.java)
+        val apiEventInterface : ApiEventInterface =
+            ApiEventInterface.retrofit.create(ApiEventInterface::class.java)
+        val call: Call<List<EventModel>> = apiEventInterface.loadEvent()
 
-        val retrofitData = retrofitBuilder.loadEvent()
-
-        retrofitData.enqueue(object : Callback<List<EventModel>?> {
+        call.enqueue(object : Callback<List<EventModel>?> {
             @SuppressLint("NotifyDataSetChanged")
             override fun onResponse(
                 call: Call<List<EventModel>?>,
